@@ -23,12 +23,12 @@ struct symbol: View {
 
 struct ContentView: View {
     @State private var moves = ["✊", "✌️", "✋"].shuffled()
-    @State private var game = ["win", "lose"].shuffled()
+    @State private var game = ["WIN", "LOSE"].shuffled()
     @State private var gameState = Int.random(in: 0 ... 1)
     @State private var showingScore = false
     @State private var scoreTitle = ""
     @State private var score = 0
-    var win: Bool = false
+   
     
     @State private var correctAnswer = Int.random(in: 0 ... 2)
     
@@ -49,7 +49,7 @@ struct ContentView: View {
                     Text(moves[correctAnswer])
                         .font(Font.system(size: 110))
                         
-                    Text("How to win this game")
+                    Text("How to \(game[gameState]) this game")
                         .foregroundColor(.green)
                         .font(.body)
                         .fontWeight(.black)
@@ -92,34 +92,64 @@ struct ContentView: View {
     }
     
     func buttonTapped(_ number: Int) {
-        if ( moves[correctAnswer] == "✊") {
-            if moves[number] == "✋" {
-                scoreTitle = "Awesome you are doing great!!"
-                score += 5
+        if game[gameState] == "win" {
+            if ( moves[correctAnswer] == "✊") {
+                if moves[number] == "✋" {
+                    scoreTitle = "Awesome you are doing great!!"
+                    score += 5
+                }else {
+                    scoreTitle = "OOps you did wrong"
+                    score -= 3
+                }
+            } else if(moves[correctAnswer] == "✌️"){
+                if moves[number] == "✊" {
+                    scoreTitle = "Awesome you are doing great!!"
+                    score += 5
+                }else {
+                    scoreTitle = "OOps you did wrong"
+                    score -= 3
+                }
             }else {
-                scoreTitle = "OOps you did wrong"
-                score -= 3
+                if moves[number] == "✌️" {
+                    scoreTitle = "Awesome you are doing great!!"
+                    score += 5
+                }else {
+                    scoreTitle = "OOps you did wrong"
+                    score -= 3
+                }
             }
-        } else if(moves[correctAnswer] == "✌️"){
-            if moves[number] == "✊" {
-                scoreTitle = "Awesome you are doing great!!"
-                score += 5
+            showingScore = true
+        } else {
+            if ( moves[correctAnswer] == "✊") {
+                if moves[number] == "✌️" {
+                    scoreTitle = "Awesome you are doing great!!"
+                    score += 5
+                }else {
+                    scoreTitle = "OOps you did wrong"
+                    score -= 3
+                }
+            } else if(moves[correctAnswer] == "✌️"){
+                if moves[number] == "✋" {
+                    scoreTitle = "Awesome you are doing great!!"
+                    score += 5
+                }else {
+                    scoreTitle = "OOps you did wrong"
+                    score -= 3
+                }
             }else {
-                scoreTitle = "OOps you did wrong"
-                score -= 3
-            }
-        }else {
-            if moves[number] == "✌️" {
-                scoreTitle = "Awesome you are doing great!!"
-                score += 5
-            }else {
-                scoreTitle = "OOps you did wrong"
-                score -= 3
+                if moves[number] == "✊" {
+                    scoreTitle = "Awesome you are doing great!!"
+                    score += 5
+                }else {
+                    scoreTitle = "OOps you did wrong"
+                    score -= 3
+                }
             }
         }
-        
-        
         showingScore = true
+        
+        
+       
     }
     
     func buttonTapped1(_ number: Int) {
