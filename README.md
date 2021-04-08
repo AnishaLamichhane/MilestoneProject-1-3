@@ -12,5 +12,4 @@ The player must then tap the correct move to win or lose the game.
 If they are correct they score a point; otherwise they lose a point.
 The game ends after 10 questions, at which point their score is shown.
 
-
-
+![milestone 1](https://user-images.githubusercontent.com/52813885/114024286-9574b400-9893-11eb-9b7b-a3c39a856604.gif)
