@@ -13,4 +13,4 @@ If they are correct they score a point; otherwise they lose a point.
 The game ends after 10 questions, at which point their score is shown.
 
 
-![milestone 1](https://user-images.githubusercontent.com/52813885/113833537-83b6e200-97a9-11eb-80bd-d5f0a09d5c9f.gif)
+
