@@ -165,6 +165,7 @@ struct ContentView: View {
     
     
     func askQuestion() {
+        game.shuffle()
      moves.shuffle()
      correctAnswer = Int.random(in: 0 ... 2)
      }
